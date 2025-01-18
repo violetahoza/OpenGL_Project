@@ -1,0 +1,69 @@
+2p 	-> 1.2p => Full Camera navigation. Reach ANY point in the scene; View ANY point in the scene
+	-> 0.8p => Automated tour. Press a key: automated camera movement to show me the highlights of the scene.
+			- More complex than a simple rotation and/or translation
+			- Possible implementation:
+				1) Choose 5-10 locations (read coords. from Blender) => Compute Camera position between pairs of points
+					Parametric line equation:
+						P(t) = P1 * t + P0*(1-t); t within [0, 1]
+							Change t within [0, 1] to get Camera Position
+							Use P(1.1) as Camera Target
+				2) The "fuck it" approach: "record" and "playback" CamPos and CamTarget to/from a file
+
+	
+1p -> 2 light sources -> Enable/Disable from keyboard
+	-> 1 directional	0.5p
+	-> 1 punctiforma	0.5p
+	
+0.5	-> Wireframe view, and point view gl_point and gl_line
+
+1p	-> Use ok textures for all your objects
+
+1p	-> Shadows from one light source;
+	 	- ALL OBJECTS must have shadow
+		- Rotate object or the light to see the shadow moving
+		- Answer correctly 2-3 questions about shadow mapping
+
+0.5	-> at least 2-3 objects compound a bigger object together
+	-> Have some animation on one object
+		- Examples: Rotating blades of a helicopter; rotating wheels on a car; open doors, windows, etc
+
+3p	->	1p	-> The wow factor, this is the only subjective point. How good does your scene look overall?
+		2p	-> Effects: 0.4p per effect (5 in total). Each effect should be reasonably complex and make your scene look better/more realistic. 
+			   Possible examples:
+					-> Fog
+					-> Fragment Discarding => at least 3 objects
+					-> Transparent objects => at least 3 objects
+					-> Reflecting surfaces on objects => at least 3 objects
+					-> At least 3 point lights => those previously mentioned in the beginning do not count
+					-> Rain
+					-> Snow -> MUST BE DIFFERENT FROM Rain (different particle; different, more complex, motion rules)
+					-> Wind animation (varying speed) 
+					-> Collision detection => on at least 3 objects
+						Possible implementation: bounding sphere logic
+							- 2 Spheres intersect if: Distance btw centers <= Sum of Radii 
+					-> Lightning
+						- Flash the scene (x10 light intensity for brief periods) + Thunder sound playing (.mp3/.wav file)
+							- use Timer in App => send uniform to control Flash-ing the light
+					-> (SUPERE-EFFECT) => 3X VALUE: TV in the scene showing a camera feed 
+						- use the Shadow Mapping technique: draw the scene as viewed from a surveillance camera in your scene
+							- draw to a texture (like a depth map) 
+							- map the texture on a simple TV object in your scene
+
+				
+1p	-> Documentation:
+		1. Contents
+		2. Subject specification
+		3. Scenario
+			3.1. scene and objects description
+			3.2. functionalities
+		4. Implementation details -> At least 1-2 paragraphs foe each OpenGL functionality in you project:
+			lighting model in OpenGL; camera navigation; Effects
+			- use your own words -> plagiarism lead to your project being REJECTED
+				Optional: 
+						4.1. graphics model
+						4.2. data structures
+						4.3. class hierarchy
+		5. Graphical user interface presentation / user manual
+		6. Conclusions and further developments
+		7. References
+		
